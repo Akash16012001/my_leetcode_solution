@@ -22,13 +22,14 @@ class Solution {
             merg[index++] = nums2[second++];
         }
         // median = ((double)(merg[0] + merg[merg.length - 1])) / 2;
-        int arrLen = nums1.length + nums2.length;
+        int arrLen = merg.length;
+        int mid = arrLen / 2;
         if(arrLen % 2 == 0){
-            median = ((double)(merg[arrLen/2 - 1] + merg[arrLen/2])) / 2;
+            median = ((double)(merg[mid - 1] + merg[mid])) / 2;
             return median;
         }
         else{
-            median = (double)(merg[arrLen/2]);
+            median = (double)(merg[mid]);
             return median;
         }
         

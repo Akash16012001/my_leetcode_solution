@@ -22,3 +22,4 @@ class Solution:
         else:
             median = float(merge[len(merge) // 2])
         return median
+        

@@ -1,31 +1,29 @@
-class Solution {
+public class Solution {
     public String removeDuplicateLetters(String s) {
-        Stack<Integer> st = new Stack<>();
-        int[] lastIndex = new int[26];
-        for(int i = 0; i < s.length(); i++){
-            lastIndex[s.charAt(i) - 'a'] = i;
+        Stack<Character> stack = new Stack<>();
+        Set<Character> seen = new HashSet<>();
+        Map<Character, Integer> lastOcc = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            lastOcc.put(s.charAt(i), i);
         }
-        boolean[] seen = new boolean[26];
-
-        for(int i = 0; i < s.length(); i++){
-            int curr = s.charAt(i) - 'a';
-            if(seen[curr]) continue;
-            while(!st.isEmpty() && st.peek() > curr && i < lastIndex[st.peek()]){
-                seen[st.pop()] = false;
+        
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!seen.contains(c)) {
+                while (!stack.isEmpty() && c < stack.peek() && i < lastOcc.get(stack.peek())) {
+                    seen.remove(stack.pop());
+                }
+                seen.add(c);
+                stack.push(c);
             }
-            st.push(curr);
-            seen[curr] = true;
         }
-        StringBuilder sb = new StringBuilder();
-        for(int i : st){
-            sb.append((char) (i + 'a'));
+        
+        StringBuilder result = new StringBuilder();
+        for (char c : stack) {
+            result.append(c);
         }
-        return sb.toString();
+        return result.toString();
     }
 }
 
 //  "cbacdcbc"
-//  seen = cbad    stack = cbad
-
-
-//  "bcabc"

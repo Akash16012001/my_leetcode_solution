@@ -1,28 +1,26 @@
-public class Solution {
+class Solution {
     public String removeDuplicateLetters(String s) {
-        Stack<Character> stack = new Stack<>();
-        Set<Character> seen = new HashSet<>();
-        Map<Character, Integer> lastOcc = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            lastOcc.put(s.charAt(i), i);
+        Stack<Integer> st = new Stack<>();
+        int[] lastIndex = new int[26];
+        for(int i = 0; i < s.length(); i++){
+            lastIndex[s.charAt(i) - 'a'] = i;
         }
-        
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (!seen.contains(c)) {
-                while (!stack.isEmpty() && c < stack.peek() && i < lastOcc.get(stack.peek())) {
-                    seen.remove(stack.pop());
-                }
-                seen.add(c);
-                stack.push(c);
+        boolean[] seen = new boolean[26];
+
+        for(int i = 0; i < s.length(); i++){
+            int curr = s.charAt(i) - 'a';
+            if(seen[curr]) continue;
+            while(!st.isEmpty() && st.peek() > curr && i < lastIndex[st.peek()]){
+                seen[st.pop()] = false;
             }
+            st.push(curr);
+            seen[curr] = true;
         }
-        
-        StringBuilder result = new StringBuilder();
-        for (char c : stack) {
-            result.append(c);
+        StringBuilder sb = new StringBuilder();
+        for(int i : st){
+            sb.append((char) (i + 'a'));
         }
-        return result.toString();
+        return sb.toString();
     }
 }
 

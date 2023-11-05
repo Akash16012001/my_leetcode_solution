@@ -1,18 +1,28 @@
 public class Solution {
-    public int getWinner(int[] A, int k) {
-        int cur = A[0];
-        int win = 0;
-        
-        for (int i = 1; i < A.length; ++i) {
-            if (A[i] > cur) {
-                cur = A[i];
-                win = 0;
+    public int getWinner(int[] arr, int k) {
+        if (k == 1) {
+            return Math.max(arr[0], arr[1]);
+        }
+        // if (k >= arr.length) {
+        //     return Arrays.stream(arr).max().getAsInt();
+        // }
+
+        int current_winner = arr[0];
+        int consecutive_wins = 0;
+
+        for (int i = 1; i < arr.length; i++) {
+            if (current_winner > arr[i]) {
+                consecutive_wins++;
+            } else {
+                current_winner = arr[i];
+                consecutive_wins = 1;
             }
-            if (++win == k) {
-                break;
+
+            if (consecutive_wins == k) {
+                return current_winner;
             }
         }
-        
-        return cur;
+
+        return current_winner;
     }
 }

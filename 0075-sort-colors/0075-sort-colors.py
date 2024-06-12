@@ -8,14 +8,14 @@ class Solution:
         two_count = nums.count(2)
         idx = 0
 
-        for i in range (0, zero_count):
+        for i in range(zero_count):
             nums[idx] = 0
             idx += 1
 
-        for i in range (0, one_count):
+        for i in range(one_count):
             nums[idx] = 1
             idx += 1
 
-        for i in range (0, two_count):
+        for i in range(two_count):
             nums[idx] = 2
             idx += 1

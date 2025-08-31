@@ -36,4 +36,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0540-single-element-in-a-sorted-array](https://github.com/Akash16012001/my_leetcode_solution/tree/master/0540-single-element-in-a-sorted-array) |
+## Two Pointers
+|  |
+| ------- |
+| [0443-string-compression](https://github.com/Akash16012001/my_leetcode_solution/tree/master/0443-string-compression) |
+## String
+|  |
+| ------- |
+| [0443-string-compression](https://github.com/Akash16012001/my_leetcode_solution/tree/master/0443-string-compression) |
 <!---LeetCode Topics End-->

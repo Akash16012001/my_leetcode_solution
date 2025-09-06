@@ -44,4 +44,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0443-string-compression](https://github.com/Akash16012001/my_leetcode_solution/tree/master/0443-string-compression) |
+## Linked List
+|  |
+| ------- |
+| [0206-reverse-linked-list](https://github.com/Akash16012001/my_leetcode_solution/tree/master/0206-reverse-linked-list) |
+## Recursion
+|  |
+| ------- |
+| [0206-reverse-linked-list](https://github.com/Akash16012001/my_leetcode_solution/tree/master/0206-reverse-linked-list) |
 <!---LeetCode Topics End-->
